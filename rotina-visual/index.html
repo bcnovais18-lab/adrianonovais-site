@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Rotina Visual · para crianças autistas (TEA)</title>
+<meta name="description" content="Kit para imprimir com quadros de rotina, 48 cartões de atividades, cartões de emoções e de necessidades, quadro de recompensa e agenda escola-casa.">
+<meta property="og:title" content="Kit Rotina Visual para imprimir">
+<meta property="og:description" content="Mais previsibilidade e menos crises na rotina da criança.">
+<meta name="theme-color" content="#1f4f8f">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+<style>
+:root{--navy:#1f4f8f;--verde:#1F9D6B;--verde-esc:#14704c;--fundo:#f3f8ff;--linha:#e1e7ee;--texto:#1d2b3a;--suave:#5b6b7d;--erro:#c2362f;--alerta:#f3a712}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--texto);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+a{color:inherit}
+.topo{padding:16px 0;border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.marca{font-weight:800;font-size:1.05rem;text-decoration:none}.marca span{color:var(--verde)}
+.topo a.pequeno{font-size:.9rem;font-weight:600;color:var(--verde-esc);text-decoration:none}
+.hero{padding:56px 0 64px;background:linear-gradient(180deg,#fff 0,var(--fundo) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.selo{display:inline-block;font-size:.82rem;font-weight:700;color:#14704c;background:#dff5ec;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--erro)}
+.hero p.sub{font-size:1.12rem;color:var(--suave);margin:18px 0 26px;max-width:52ch}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--verde);color:#fff;font-weight:800;font-size:1.08rem;padding:16px 26px;border-radius:12px;text-decoration:none;box-shadow:0 10px 24px rgba(31,157,107,.28);transition:transform .15s,background .15s}
+.cta:hover{background:#178357;transform:translateY(-2px)}
+.cta:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.preco-linha{margin-top:14px;font-size:.92rem;color:var(--suave)}
+.preco-linha b{color:var(--texto)}
+/* duas contas */
+.contas{display:grid;gap:14px}
+.conta{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:16px 18px;box-shadow:0 12px 30px rgba(19,41,75,.07)}
+.conta h3{font-size:.8rem;font-weight:700;color:var(--suave);margin-bottom:8px}
+.conta.real{border-color:var(--navy);border-width:2px}
+.conta.real h3{color:var(--navy)}
+.lin{display:flex;justify-content:space-between;gap:12px;font-size:.93rem;padding:4px 0;border-bottom:1px dashed var(--linha)}
+.lin:last-of-type{border-bottom:0}
+.lin b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.lin.neg b{color:var(--erro);font-weight:600}
+.lin.tot{font-weight:800;font-size:1.02rem;border-top:2px solid var(--linha);border-bottom:0;margin-top:4px;padding-top:8px}
+.lin.tot.bom b{color:var(--verde-esc)}
+.lin.tot.falso b{color:var(--suave);text-decoration:line-through;text-decoration-color:var(--erro)}
+.nota{font-size:.78rem;color:var(--suave);margin-top:6px}
+section{padding:64px 0}
+h2{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;margin-bottom:12px;text-wrap:balance}
+.intro{color:var(--suave);font-size:1.05rem;max-width:62ch;margin-bottom:32px}
+.dor{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.dor div{padding:20px;border-radius:14px;background:var(--fundo)}
+.dor b{display:block;font-size:1.02rem;margin-bottom:6px}
+.dor p{color:var(--suave);font-size:.95rem}
+.itens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 32px;list-style:none}
+.itens li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:1rem}
+.itens li::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/14px no-repeat;margin-top:2px}
+.itens small{display:block;color:var(--suave);font-size:.88rem}
+/* tabela demo */
+.demo{overflow-x:auto;border:1px solid var(--linha);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+th{background:var(--navy);color:#fff;font-weight:700;font-size:.78rem;text-align:left;padding:10px 12px}
+th.n,td.n{text-align:right}
+td{padding:10px 12px;border-top:1px solid var(--linha);font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.76rem;font-weight:800;padding:3px 9px;border-radius:999px}
+.tag.p{background:#fde2e2;color:#b42318}.tag.b{background:#fff1d6;color:#9a5b00}.tag.s{background:#ddf5ec;color:#0b7a55}
+.demo-nota{font-size:.8rem;color:var(--suave);margin-top:10px}
+.passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:p;list-style:none}
+.passos li{padding:22px;border:1px solid var(--linha);border-radius:14px}
+.passos li::before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;margin-bottom:12px}
+.passos b{display:block;margin-bottom:4px}
+.passos p{color:var(--suave);font-size:.95rem}
+.oferta{background:var(--navy);color:#fff;border-radius:22px;padding:44px clamp(22px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.oferta h2{color:#fff}
+.oferta ul{list-style:none;display:grid;gap:8px;margin-top:16px;color:#d6e0ec}
+.oferta li::before{content:"✓  ";color:var(--verde);font-weight:800}
+.caixa{background:#fff;color:var(--texto);border-radius:16px;padding:28px;text-align:center}
+.caixa .de{color:var(--suave);font-size:.9rem}
+.caixa .valor{font-size:3rem;font-weight:800;line-height:1;margin:6px 0 4px}
+.caixa .valor small{font-size:1.1rem;vertical-align:top;margin-right:4px}
+.caixa .cta{width:100%;justify-content:center;margin-top:16px}
+.caixa .garantia{font-size:.82rem;color:var(--suave);margin-top:12px}
+.faq details{border-bottom:1px solid var(--linha);padding:16px 0}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";font-weight:800;color:var(--verde)}
+.faq details[open] summary::after{content:"−"}
+.faq summary:focus-visible{outline:2px solid var(--verde);outline-offset:4px}
+.faq p{color:var(--suave);margin-top:8px;max-width:70ch}
+footer{padding:36px 0 90px;border-top:1px solid var(--linha);font-size:.85rem;color:var(--suave)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--linha);padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:12px;z-index:5;box-shadow:0 -8px 24px rgba(19,41,75,.08)}
+.barra b{font-size:1.05rem}.barra small{display:block;color:var(--suave);font-size:.75rem}
+.barra .cta{padding:12px 18px;font-size:.98rem;box-shadow:none}
+@media (max-width:860px){
+  .hero .wrap,.oferta{grid-template-columns:1fr}
+  .dor,.passos{grid-template-columns:1fr}
+  .itens{grid-template-columns:1fr}
+  .barra{display:flex}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+
+.painel{background:#fff;border:2px solid var(--navy);border-radius:18px;padding:22px;box-shadow:0 16px 36px rgba(11,46,107,.1)}
+.painel h3{font-size:.8rem;color:var(--suave);font-weight:700;margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.kpi{background:var(--fundo);border-radius:12px;padding:12px 14px}.kpi small{display:block;font-size:.78rem;color:var(--suave);font-weight:600}.kpi b{font-size:1.25rem;font-variant-numeric:tabular-nums}
+.barra-cat{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:.85rem;margin:7px 0}
+.barra-cat i{display:block;height:10px;border-radius:5px;background:#e1e7ee;position:relative;overflow:hidden}
+.barra-cat i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--p);background:var(--verde);border-radius:5px}
+.barra-cat.alto i::after{background:#c2362f}
+.barra-cat span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--suave)}
+.semanas{display:grid;grid-template-columns:repeat(13,1fr);gap:5px;margin-top:6px}
+.semanas span{aspect-ratio:1;border-radius:4px;background:#e1e7ee}.semanas span.ok{background:#16a34a}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1137852378623302');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1137852378623302&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<style>.foto{border-radius:18px;box-shadow:0 18px 40px rgba(31,79,143,.16);width:100%;height:auto;display:block;border:1px solid var(--linha)}.amostras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.amostras img{width:100%;height:auto;border-radius:12px;border:1px solid var(--linha);box-shadow:0 10px 24px rgba(31,79,143,.08)}.amostras p{font-size:.9rem;color:var(--suave);margin-top:6px;text-align:center}@media(max-width:860px){.amostras{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<header class="topo"><div class="wrap"><a class="marca" href="#">Rotina <span>Visual</span></a><a class="pequeno js-comprar" href="#comprar">Quero o kit</a></div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="selo">Kit para imprimir em casa</span>
+    <h1>Quando a criança <em style="color:var(--verde)">vê o que vem depois</em>, o dia fica mais leve para todo mundo.</h1>
+    <p class="sub">Quadros de rotina, 48 cartões de atividades, cartões de emoções e de "eu preciso", quadro de estrelas e agenda escola–casa. Imprima hoje e comece amanhã de manhã.</p>
+    <a class="cta js-comprar" href="#comprar">Quero o kit de rotina visual</a>
+    <p class="preco-linha">Por <b>R$ 24,90</b>, pagamento único. Arquivo em PDF para imprimir quantas vezes quiser.</p>
+  </div>
+  <img class="foto" src="amostra-cartoes.png" alt="Folha de cartões de atividades do kit: acordar, banheiro, lavar as mãos, escovar os dentes, tomar banho, vestir a roupa e outros" width="794" height="1123" loading="eager">
+</div></section>
+
+<section><div class="wrap">
+  <h2>Para quem vive isso todos os dias</h2>
+  <div class="dor">
+    <div><b>Mudança de rotina vira crise</b><p>O cartão "Mudança de planos" ajuda a avisar com calma e mostrar o que vem no lugar.</p></div>
+    <div><b>A manhã da escola é uma batalha</b><p>Com a sequência na parede, a criança acompanha cada passo e sabe quando acaba.</p></div>
+    <div><b>Difícil dizer o que sente</b><p>Cartões de emoções e de "eu preciso" ajudam a mostrar fome, cansaço, dor ou barulho demais.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--fundo)"><div class="wrap">
+  <h2>Veja algumas páginas do kit</h2>
+  <p class="intro">16 páginas em A4, coloridas, com bordas por tipo de atividade para a criança reconhecer mais rápido.</p>
+  <div class="amostras">
+    <div><img src="amostra-manha.png" alt="Quadro Minha manhã com 6 espaços numerados para colar os cartões" width="794" height="1123" loading="lazy"><p>Quadros de rotina: manhã, tarde e noite</p></div>
+    <div><img src="amostra-emocoes.png" alt="Cartões Eu preciso de: água, banheiro, ajuda, pausa, abraço, silêncio" width="794" height="1123" loading="lazy"><p>Cartões "Eu preciso de…"</p></div>
+    <div><img src="amostra-agenda.png" alt="Agenda escola-casa com como chegou, comeu, dormiu e recado" width="794" height="1123" loading="lazy"><p>Agenda escola–casa</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>O que vem no kit</h2>
+  <ul class="itens">
+    <li><span>Quadros "Minha manhã", "Minha tarde" e "Minha noite"<small>6 espaços numerados e um "feito" para cada atividade.</small></span></li>
+    <li><span>Quadro "Primeiro e Depois"<small>Primeiro a tarefa difícil, depois a recompensa.</small></span></li>
+    <li><span>48 cartões de atividades<small>Rotina, comida, escola, brincar, saúde e passeios, com cor por tipo.</small></span></li>
+    <li><span>12 cartões de emoções<small>Feliz, triste, bravo, com medo, cansado, barulho demais e outros.</small></span></li>
+    <li><span>12 cartões "Eu preciso de…"<small>Água, banheiro, ajuda, pausa, silêncio, acabou.</small></span></li>
+    <li><span>Cartões especiais<small>Mudança de planos, esperar, agora não, surpresa.</small></span></li>
+    <li><span>Quadro de estrelas da semana<small>Para motivar e comemorar cada conquista.</small></span></li>
+    <li><span>Agenda escola–casa e cartões em branco<small>Para a escola contar como foi o dia e para você colar fotos reais.</small></span></li>
+  </ul>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Pronto em 3 passos</h2>
+  <ol class="passos">
+    <li><b>Baixe e imprima</b><p>O PDF chega por e-mail logo após o pagamento. Papel comum ou mais grosso.</p></li>
+    <li><b>Plastifique e recorte</b><p>Com plástico adesivo e um pedacinho de velcro atrás de cada cartão.</p></li>
+    <li><b>Comece pequeno</b><p>3 ou 4 cartões na rotina da manhã. O guia explica passo a passo.</p></li>
+  </ol>
+</div></section>
+
+<section id="comprar" style="padding-top:0"><div class="wrap">
+  <div class="oferta">
+    <div>
+      <h2>Mais previsibilidade para a criança. Mais tranquilidade para a família.</h2>
+      <ul>
+        <li>16 páginas em PDF, prontas para imprimir</li>
+        <li>3 quadros de rotina + Primeiro e Depois</li>
+        <li>72 cartões (atividades, emoções e necessidades) + especiais</li>
+        <li>Quadro de estrelas e agenda escola–casa</li>
+        <li>Guia "Como usar" para começar do jeito certo</li>
+      </ul>
+    </div>
+    <div class="caixa">
+      <p class="de">Pagamento único</p>
+      <p class="valor"><small>R$</small>24,90</p>
+      <p class="de">no Pix ou no cartão</p>
+      <a class="cta js-comprar" href="#comprar">Comprar o kit</a>
+      <p class="garantia">7 dias de garantia: se não servir para você, devolvemos o valor.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="faq" style="padding-top:0"><div class="wrap">
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Serve só para crianças autistas?</summary><p>Não. Foi pensado para crianças no espectro autista, mas ajuda qualquer criança que se sente mais segura sabendo o que vem depois, como crianças com TDAH ou em fase de adaptação na escola.</p></details>
+  <details><summary>Para qual idade?</summary><p>Funciona melhor dos 2 aos 10 anos. Para crianças maiores, use os cartões como lista de tarefas.</p></details>
+  <details><summary>Posso imprimir mais de uma vez?</summary><p>Sim, quantas vezes precisar, para uso da sua família. Imprima um jogo para casa e outro para a escola ou a casa da vó.</p></details>
+  <details><summary>Substitui a terapia?</summary><p>Não. O kit é um apoio para a rotina em casa. Se a criança faz terapia, mostre o kit ao profissional e peça sugestões de uso.</p></details>
+  <details><summary>Recebo algo físico?</summary><p>Não. Você recebe o arquivo em PDF e imprime em casa ou numa papelaria.</p></details>
+</div></section>
+</main>
+<footer><div class="wrap"><span>Rotina Visual · materiais para imprimir em casa</span><span>Material de apoio. Não substitui acompanhamento profissional.</span></div></footer>
+<div class="barra"><span><b>R$ 24,90</b><small>Kit Rotina Visual</small></span><a class="cta js-comprar" href="#comprar">Comprar</a></div>
+<script>
+/* COLOQUE AQUI o link do checkout da Kiwify. */
+const CHECKOUT = "";
+if (CHECKOUT) document.querySelectorAll(".js-comprar").forEach(a => { a.href = CHECKOUT; a.rel = "noopener"; });
+document.querySelectorAll(".js-comprar").forEach(a => a.addEventListener("click", () => { if (CHECKOUT && window.fbq) fbq("track","InitiateCheckout",{content_name:"Kit Rotina Visual",value:24.9,currency:"BRL"}); }));
+</script>
+</body></html>
