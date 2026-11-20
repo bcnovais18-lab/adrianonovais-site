@@ -122,14 +122,14 @@ fbq('track','PageView');
 <style>.foto{border-radius:18px;box-shadow:0 18px 40px rgba(31,79,143,.16);width:100%;height:auto;display:block;border:1px solid var(--linha)}.amostras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.amostras img{width:100%;height:auto;border-radius:12px;border:1px solid var(--linha);box-shadow:0 10px 24px rgba(31,79,143,.08)}.amostras p{font-size:.9rem;color:var(--suave);margin-top:6px;text-align:center}@media(max-width:860px){.amostras{grid-template-columns:1fr 1fr}}</style>
 </head>
 <body>
-<header class="topo"><div class="wrap"><a class="marca" href="#">Rotina <span>Visual</span></a><a class="pequeno js-comprar" href="#comprar">Quero o kit</a></div></header>
+<header class="topo"><div class="wrap"><a class="marca" href="#">Rotina <span>Visual</span></a><a class="pequeno js-comprar" href="https://pay.kiwify.com.br/2sMeoKF">Quero o kit</a></div></header>
 <main>
 <section class="hero"><div class="wrap">
   <div>
     <span class="selo">Kit para imprimir em casa</span>
     <h1>Quando a criança <em style="color:var(--verde)">vê o que vem depois</em>, o dia fica mais leve para todo mundo.</h1>
     <p class="sub">Quadros de rotina, 48 cartões de atividades, cartões de emoções e de "eu preciso", quadro de estrelas e agenda escola–casa. Imprima hoje e comece amanhã de manhã.</p>
-    <a class="cta js-comprar" href="#comprar">Quero o kit de rotina visual</a>
+    <a class="cta js-comprar" href="https://pay.kiwify.com.br/2sMeoKF">Quero o kit de rotina visual</a>
     <p class="preco-linha">Por <b>R$ 24,90</b>, pagamento único. Arquivo em PDF para imprimir quantas vezes quiser.</p>
   </div>
   <img class="foto" src="amostra-cartoes.png" alt="Folha de cartões de atividades do kit: acordar, banheiro, lavar as mãos, escovar os dentes, tomar banho, vestir a roupa e outros" width="794" height="1123" loading="eager">
@@ -193,7 +193,7 @@ fbq('track','PageView');
       <p class="de">Pagamento único</p>
       <p class="valor"><small>R$</small>24,90</p>
       <p class="de">no Pix ou no cartão</p>
-      <a class="cta js-comprar" href="#comprar">Comprar o kit</a>
+      <a class="cta js-comprar" href="https://pay.kiwify.com.br/2sMeoKF">Comprar o kit</a>
       <p class="garantia">7 dias de garantia: se não servir para você, devolvemos o valor.</p>
     </div>
   </div>
@@ -209,10 +209,10 @@ fbq('track','PageView');
 </div></section>
 </main>
 <footer><div class="wrap"><span>Rotina Visual · materiais para imprimir em casa</span><span>Material de apoio. Não substitui acompanhamento profissional.</span></div></footer>
-<div class="barra"><span><b>R$ 24,90</b><small>Kit Rotina Visual</small></span><a class="cta js-comprar" href="#comprar">Comprar</a></div>
+<div class="barra"><span><b>R$ 24,90</b><small>Kit Rotina Visual</small></span><a class="cta js-comprar" href="https://pay.kiwify.com.br/2sMeoKF">Comprar</a></div>
 <script>
 /* COLOQUE AQUI o link do checkout da Kiwify. */
-const CHECKOUT = "";
+const CHECKOUT = "https://pay.kiwify.com.br/2sMeoKF";
 if (CHECKOUT) document.querySelectorAll(".js-comprar").forEach(a => { a.href = CHECKOUT; a.rel = "noopener"; });
 document.querySelectorAll(".js-comprar").forEach(a => a.addEventListener("click", () => { if (CHECKOUT && window.fbq) fbq("track","InitiateCheckout",{content_name:"Kit Rotina Visual",value:24.9,currency:"BRL"}); }));
 </script>
