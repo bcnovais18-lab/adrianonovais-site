@@ -140,7 +140,7 @@ fbq('track','PageView');
     <h1>Pagando só o que dá, <em>essa dívida nunca acaba</em>. Com um plano, ela tem data para acabar.</h1>
     <p class="sub">Liste suas dívidas. A planilha mostra qual pagar primeiro, quanto pagar em cada uma e o mês em que você fica livre. E traz roteiros prontos para negociar com banco, cartão e loja.</p>
     <a class="cta js-comprar" href="https://pay.kiwify.com.br/6RnIKo5">Quero meu plano para sair do vermelho</a>
-    <p class="preco-linha">Por <b>R$ 27</b>, pagamento único. Funciona no Excel e no Google Planilhas.</p>
+    <p class="preco-linha">Por <b>R$ 27,99</b>, pagamento único. Funciona no Excel e no Google Planilhas.</p>
   </div>
   <div class="cartoes" aria-label="Exemplo da planilha">
     <div class="cd"><div class="t"><span>Cartão de crédito · 12% ao mês</span><span>R$ 4.200</span></div><div class="m">Pagando R$ 350 por mês: <b>nunca quita</b> (os juros são R$ 504)</div></div>
@@ -198,7 +198,7 @@ fbq('track','PageView');
     </div>
     <div class="caixa">
       <p class="de">Pagamento único</p>
-      <p class="valor"><small>R$</small>27</p>
+      <p class="valor"><small>R$</small>27,99</p>
       <p class="de">no Pix ou no cartão</p>
       <a class="cta js-comprar" href="https://pay.kiwify.com.br/6RnIKo5">Comprar a planilha</a>
       <p class="garantia">7 dias de garantia: se não servir para você, devolvemos o valor.</p>
@@ -216,11 +216,11 @@ fbq('track','PageView');
 </div></section>
 </main>
 <footer><div class="wrap"><span>Planilhas Práticas · ferramentas simples para organizar o dinheiro</span><span>Ferramenta de organização. Não é consultoria financeira.</span></div></footer>
-<div class="barra"><span><b>R$ 27</b><small>Saindo do Vermelho</small></span><a class="cta js-comprar" href="https://pay.kiwify.com.br/6RnIKo5">Comprar</a></div>
+<div class="barra"><span><b>R$ 27,99</b><small>Saindo do Vermelho</small></span><a class="cta js-comprar" href="https://pay.kiwify.com.br/6RnIKo5">Comprar</a></div>
 <script>
 /* COLOQUE AQUI o link do checkout da Kiwify. */
 const CHECKOUT = "https://pay.kiwify.com.br/6RnIKo5";
 if (CHECKOUT) document.querySelectorAll(".js-comprar").forEach(a => { a.href = CHECKOUT; a.rel = "noopener"; });
-document.querySelectorAll(".js-comprar").forEach(a => a.addEventListener("click", () => { if (CHECKOUT && window.fbq) fbq("track","InitiateCheckout",{content_name:"Saindo do Vermelho",value:27,currency:"BRL"}); }));
+document.querySelectorAll(".js-comprar").forEach(a => a.addEventListener("click", () => { if (CHECKOUT && window.fbq) fbq("track","InitiateCheckout",{content_name:"Saindo do Vermelho",value:27.99,currency:"BRL"}); }));
 </script>
 </body></html>
