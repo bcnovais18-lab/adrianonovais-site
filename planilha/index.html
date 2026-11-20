@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planilha do Lucro Real no Mercado Livre</title>
+<meta name="description" content="Descubra quanto sobra de verdade em cada venda no Mercado Livre: produto, tarifa, custo fixo, envio, ADS e imposto na mesma conta. Preço mínimo e preço sugerido por anúncio.">
+<meta property="og:title" content="Planilha do Lucro Real no Mercado Livre">
+<meta property="og:description" content="Vendeu bem e não sobrou nada? A conta completa mostra onde o dinheiro some.">
+<meta name="theme-color" content="#13294b">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+<style>
+:root{--navy:#13294b;--verde:#10b07a;--verde-esc:#0b7a55;--fundo:#f4f7fa;--linha:#e1e7ee;--texto:#13294b;--suave:#5b6b82;--erro:#c2362f;--alerta:#f3a712}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--texto);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+a{color:inherit}
+.topo{padding:16px 0;border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.marca{font-weight:800;font-size:1.05rem;text-decoration:none}.marca span{color:var(--verde)}
+.topo a.pequeno{font-size:.9rem;font-weight:600;color:var(--verde-esc);text-decoration:none}
+.hero{padding:56px 0 64px;background:linear-gradient(180deg,#fff 0,var(--fundo) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.selo{display:inline-block;font-size:.82rem;font-weight:700;color:var(--verde-esc);background:#dcf5ea;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--erro)}
+.hero p.sub{font-size:1.12rem;color:var(--suave);margin:18px 0 26px;max-width:52ch}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--verde);color:#fff;font-weight:800;font-size:1.08rem;padding:16px 26px;border-radius:12px;text-decoration:none;box-shadow:0 10px 24px rgba(16,176,122,.28);transition:transform .15s,background .15s}
+.cta:hover{background:#0c9a6a;transform:translateY(-2px)}
+.cta:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.preco-linha{margin-top:14px;font-size:.92rem;color:var(--suave)}
+.preco-linha b{color:var(--texto)}
+/* duas contas */
+.contas{display:grid;gap:14px}
+.conta{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:16px 18px;box-shadow:0 12px 30px rgba(19,41,75,.07)}
+.conta h3{font-size:.8rem;font-weight:700;color:var(--suave);margin-bottom:8px}
+.conta.real{border-color:var(--navy);border-width:2px}
+.conta.real h3{color:var(--navy)}
+.lin{display:flex;justify-content:space-between;gap:12px;font-size:.93rem;padding:4px 0;border-bottom:1px dashed var(--linha)}
+.lin:last-of-type{border-bottom:0}
+.lin b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.lin.neg b{color:var(--erro);font-weight:600}
+.lin.tot{font-weight:800;font-size:1.02rem;border-top:2px solid var(--linha);border-bottom:0;margin-top:4px;padding-top:8px}
+.lin.tot.bom b{color:var(--verde-esc)}
+.lin.tot.falso b{color:var(--suave);text-decoration:line-through;text-decoration-color:var(--erro)}
+.nota{font-size:.78rem;color:var(--suave);margin-top:6px}
+section{padding:64px 0}
+h2{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;margin-bottom:12px;text-wrap:balance}
+.intro{color:var(--suave);font-size:1.05rem;max-width:62ch;margin-bottom:32px}
+.dor{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.dor div{padding:20px;border-radius:14px;background:var(--fundo)}
+.dor b{display:block;font-size:1.02rem;margin-bottom:6px}
+.dor p{color:var(--suave);font-size:.95rem}
+.itens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 32px;list-style:none}
+.itens li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:1rem}
+.itens li::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/14px no-repeat;margin-top:2px}
+.itens small{display:block;color:var(--suave);font-size:.88rem}
+/* tabela demo */
+.demo{overflow-x:auto;border:1px solid var(--linha);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+th{background:var(--navy);color:#fff;font-weight:700;font-size:.78rem;text-align:left;padding:10px 12px}
+th.n,td.n{text-align:right}
+td{padding:10px 12px;border-top:1px solid var(--linha);font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.76rem;font-weight:800;padding:3px 9px;border-radius:999px}
+.tag.p{background:#fde2e2;color:#b42318}.tag.b{background:#fff1d6;color:#9a5b00}.tag.s{background:#ddf5ec;color:#0b7a55}
+.demo-nota{font-size:.8rem;color:var(--suave);margin-top:10px}
+.passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:p;list-style:none}
+.passos li{padding:22px;border:1px solid var(--linha);border-radius:14px}
+.passos li::before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;margin-bottom:12px}
+.passos b{display:block;margin-bottom:4px}
+.passos p{color:var(--suave);font-size:.95rem}
+.oferta{background:var(--navy);color:#fff;border-radius:22px;padding:44px clamp(22px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.oferta h2{color:#fff}
+.oferta ul{list-style:none;display:grid;gap:8px;margin-top:16px;color:#d6e0ec}
+.oferta li::before{content:"✓  ";color:var(--verde);font-weight:800}
+.caixa{background:#fff;color:var(--texto);border-radius:16px;padding:28px;text-align:center}
+.caixa .de{color:var(--suave);font-size:.9rem}
+.caixa .valor{font-size:3rem;font-weight:800;line-height:1;margin:6px 0 4px}
+.caixa .valor small{font-size:1.1rem;vertical-align:top;margin-right:4px}
+.caixa .cta{width:100%;justify-content:center;margin-top:16px}
+.caixa .garantia{font-size:.82rem;color:var(--suave);margin-top:12px}
+.faq details{border-bottom:1px solid var(--linha);padding:16px 0}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";font-weight:800;color:var(--verde)}
+.faq details[open] summary::after{content:"−"}
+.faq summary:focus-visible{outline:2px solid var(--verde);outline-offset:4px}
+.faq p{color:var(--suave);margin-top:8px;max-width:70ch}
+footer{padding:36px 0 90px;border-top:1px solid var(--linha);font-size:.85rem;color:var(--suave)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--linha);padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:12px;z-index:5;box-shadow:0 -8px 24px rgba(19,41,75,.08)}
+.barra b{font-size:1.05rem}.barra small{display:block;color:var(--suave);font-size:.75rem}
+.barra .cta{padding:12px 18px;font-size:.98rem;box-shadow:none}
+@media (max-width:860px){
+  .hero .wrap,.oferta{grid-template-columns:1fr}
+  .dor,.passos{grid-template-columns:1fr}
+  .itens{grid-template-columns:1fr}
+  .barra{display:flex}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1137852378623302');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1137852378623302&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<header class="topo"><div class="wrap"><a class="marca" href="#">Zaac <span>ML</span></a><a class="pequeno" href="#comprar">Quero a planilha</a></div></header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="selo">Para quem vende no Mercado Livre</span>
+      <h1>Vendeu bem e não sobrou nada? A conta que você faz está <em>incompleta</em>.</h1>
+      <p class="sub">Produto menos tarifa não é lucro. Esta planilha coloca na mesma conta o frete, o custo fixo, o ADS e o imposto, e mostra quanto sobra de verdade em cada venda, anúncio por anúncio.</p>
+      <a class="cta js-comprar" href="#comprar">Quero saber meu lucro real</a>
+      <p class="preco-linha">Por <b>R$ 26,99</b>, pagamento único. Funciona no Excel e no Google Planilhas.</p>
+    </div>
+    <div class="contas" aria-label="Exemplo: a mesma loja em duas contas">
+      <div class="conta">
+        <h3>A CONTA QUE QUASE TODO MUNDO FAZ</h3>
+        <div class="lin"><span>Faturamento</span><b>R$ 40.777</b></div>
+        <div class="lin neg"><span>Custo dos produtos</span><b>− R$ 15.450</b></div>
+        <div class="lin neg"><span>Tarifas do ML</span><b>− R$ 5.613</b></div>
+        <div class="lin tot falso"><span>"Lucro" · 48%</span><b>R$ 19.715</b></div>
+      </div>
+      <div class="conta real">
+        <h3>A CONTA COMPLETA, NA PLANILHA</h3>
+        <div class="lin"><span>Faturamento</span><b>R$ 40.777</b></div>
+        <div class="lin neg"><span>Produtos e embalagem</span><b>− R$ 15.450</b></div>
+        <div class="lin neg"><span>Tarifas e custo fixo</span><b>− R$ 6.211</b></div>
+        <div class="lin neg"><span>Envios</span><b>− R$ 3.708</b></div>
+        <div class="lin neg"><span>ADS</span><b>− R$ 2.878</b></div>
+        <div class="lin neg"><span>Imposto</span><b>− R$ 2.447</b></div>
+        <div class="lin tot bom"><span>Lucro de verdade · 25%</span><b>R$ 10.083</b></div>
+      </div>
+      <p class="nota">Exemplo com valores fictícios, calculado pela própria planilha.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Onde o dinheiro some sem você ver</h2>
+    <p class="intro">Ninguém perde dinheiro de uma vez. Ele vai saindo em pedacinhos que não aparecem na conta de cabeça.</p>
+    <div class="dor">
+      <div><b>O frete que você paga</b><p>Mesmo quando o comprador vê "frete grátis", o ML desconta o envio de você. Em produto pesado, come boa parte da margem.</p></div>
+      <div><b>O ADS que vira prejuízo</b><p>O anúncio vende mais com Mercado Ads, mas em alguns produtos o custo do anúncio é maior que o lucro da venda.</p></div>
+      <div><b>O kit mal calculado</b><p>Kit com 2 ou 3 peças tem custo, frete e embalagem diferentes. Um preço "parecido" com o unitário pode estar no vermelho.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--fundo)">
+  <div class="wrap">
+    <h2>O que a planilha mostra para cada anúncio</h2>
+    <p class="intro">Você preenche as colunas amarelas. O resto ela calcula sozinha e marca em vermelho quem está te dando prejuízo.</p>
+    <div class="demo" role="region" aria-label="Exemplo da aba Meus anúncios" tabindex="0">
+      <table>
+        <thead><tr><th>Anúncio</th><th class="n">Preço</th><th class="n">Lucro por venda</th><th class="n">Margem</th><th class="n">Preço mínimo</th><th class="n">Preço sugerido</th><th>Situação</th></tr></thead>
+        <tbody>
+          <tr><td>Kit 2 colchões solteiro</td><td class="n">R$ 569,90</td><td class="n">R$ 193,12</td><td class="n">33,9%</td><td class="n">R$ 315,79</td><td class="n">R$ 393,44</td><td><span class="tag s">Saudável</span></td></tr>
+          <tr><td>Poltrona reclinável</td><td class="n">R$ 1.199,20</td><td class="n">R$ 113,45</td><td class="n">9,5%</td><td class="n">R$ 1.034,78</td><td class="n">R$ 1.322,22</td><td><span class="tag b">Margem baixa</span></td></tr>
+          <tr><td>Capa de almofada</td><td class="n">R$ 39,90</td><td class="n">R$ 11,08</td><td class="n">27,8%</td><td class="n">R$ 23,96</td><td class="n">R$ 30,96</td><td><span class="tag s">Saudável</span></td></tr>
+          <tr><td>Luminária de mesa</td><td class="n">R$ 59,90</td><td class="n" style="color:var(--erro)">− R$ 5,67</td><td class="n" style="color:var(--erro)">−9,5%</td><td class="n">R$ 67,57</td><td class="n">R$ 84,75</td><td><span class="tag p">PREJUÍZO</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="demo-nota">Exemplo com valores fictícios. Preço mínimo = abaixo disso você paga para vender. Preço sugerido = o preço que garante a margem que você escolheu.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Tudo o que entra na conta</h2>
+    <p class="intro">Feita por quem gerencia uma operação de Mercado Livre no dia a dia, com as regras de tarifa de 2026.</p>
+    <ul class="itens">
+      <li><span>Tarifa do Clássico e do Premium<small>Com padrão pronto e espaço para a tarifa exata da sua categoria.</small></span></li>
+      <li><span>Custo fixo abaixo de R$ 79<small>A tabela em vigor desde março de 2026 para Flex e envio próprio.</small></span></li>
+      <li><span>Frete descontado em cada venda<small>Coleta, Agência, Full ou Flex.</small></span></li>
+      <li><span>ADS por anúncio<small>Veja quanto do faturamento vai para o Mercado Ads.</small></span></li>
+      <li><span>Imposto sobre a venda<small>Simples, MEI ou a alíquota que o seu contador passar.</small></span></li>
+      <li><span>Kits com várias unidades<small>O custo se multiplica sozinho pelo número de peças.</small></span></li>
+      <li><span>Preço mínimo e preço sugerido<small>Para nunca mais vender abaixo do custo.</small></span></li>
+      <li><span>Resumo do mês<small>A conta incompleta ao lado da conta completa, com a diferença em reais.</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Pronta em 3 passos</h2>
+    <ol class="passos">
+      <li><b>Compre e baixe</b><p>Você recebe o arquivo por e-mail logo após o pagamento.</p></li>
+      <li><b>Ajuste uma vez</b><p>Coloque o seu imposto, o ADS médio e a margem que você quer. Leva 1 minuto.</p></li>
+      <li><b>Lance seus anúncios</b><p>Uma linha por anúncio. Em minutos você vê quem dá lucro e quem dá prejuízo.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="comprar" style="padding-top:0">
+  <div class="wrap">
+    <div class="oferta">
+      <div>
+        <h2>Pare de adivinhar quanto você lucra</h2>
+        <ul>
+          <li>Planilha completa para Excel e Google Planilhas</li>
+          <li>Calculadora rápida para testar preço antes de anunciar</li>
+          <li>Aba de anúncios com alerta de prejuízo</li>
+          <li>Resumo do mês com o lucro de verdade</li>
+          <li>Guia de uso dentro da própria planilha</li>
+        </ul>
+      </div>
+      <div class="caixa">
+        <p class="de">Pagamento único</p>
+        <p class="valor"><small>R$</small>26,99</p>
+        <p class="de">no Pix ou no cartão</p>
+        <a class="cta js-comprar" href="#comprar">Comprar a planilha</a>
+        <p class="garantia">7 dias de garantia: se não servir para você, devolvemos o valor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Preciso entender de Excel?</summary><p>Não. Você só preenche as células amarelas. As fórmulas já estão prontas e protegidas de erro.</p></details>
+    <details><summary>Funciona no celular?</summary><p>Funciona no app do Google Planilhas ou do Excel, mas para lançar vários anúncios o computador é mais confortável.</p></details>
+    <details><summary>Serve para Full, Flex e Coleta?</summary><p>Sim. Você escolhe a logística de cada anúncio e informa o custo de envio. O custo fixo abaixo de R$ 79 é aplicado só onde o Mercado Livre cobra.</p></details>
+    <details><summary>E se o Mercado Livre mudar as tarifas?</summary><p>As tarifas ficam numa aba de configurações. Basta trocar o número e a planilha inteira se atualiza.</p></details>
+    <details><summary>A planilha é do Mercado Livre?</summary><p>Não. É uma ferramenta independente, feita por quem vende no Mercado Livre. O valor final de cada venda é sempre o que aparece no seu painel.</p></details>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Zaac ML · ferramentas para quem vende no Mercado Livre</span><span>Quer essa conta feita sozinha, puxando as vendas do Mercado Livre? <a href="https://zaacml.adrianonovais.com.br">Conheça o Zaac ML</a></span></div></footer>
+
+<div class="barra"><span><b>R$ 26,99</b><small>Planilha do Lucro Real</small></span><a class="cta js-comprar" href="#comprar">Comprar</a></div>
+
+<script>
+/* COLOQUE AQUI o link do checkout da Kiwify (ou Hotmart) quando criar o produto. */
+const CHECKOUT = "";
+if (CHECKOUT) document.querySelectorAll(".js-comprar").forEach(a => { a.href = CHECKOUT; a.rel = "noopener"; });
+document.querySelectorAll(".js-comprar").forEach(a => a.addEventListener("click", () => { if (window.fbq) fbq("track","InitiateCheckout",{content_name:"Planilha do Lucro Real",value:26.99,currency:"BRL"}); }));
+</script>
+</body>
+</html>
