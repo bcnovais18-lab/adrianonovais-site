@@ -393,6 +393,24 @@ form.pedido textarea{min-height:76px;resize:vertical}
 
 footer{border-top:1px solid var(--linha);padding-block:22px;font-size:.86rem;color:var(--nevoa)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-right:max(86px,env(safe-area-inset-right,0px))}
+
+/* ===== sistemas prontos ===== */
+#prontos .pronto{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--chapa);border:1px solid var(--linha);border-radius:18px;padding:24px}
+#prontos .pronto img{width:100%;height:auto;border-radius:12px;border:1px solid var(--linha);display:block}
+#prontos .tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--maquina);border:1px solid var(--maquina);border-radius:99px;padding:3px 10px;margin-bottom:10px}
+#prontos .pronto h3{font-size:1.5rem;margin-bottom:8px}
+#prontos .pronto p{color:var(--nevoa)}
+#prontos .pronto ul{list-style:none;margin:14px 0 18px;display:grid;gap:6px}
+#prontos .pronto li::before{content:"✓ ";color:var(--maquina);font-weight:700}
+#prontos .bts{display:flex;flex-wrap:wrap;gap:10px}
+#prontos .planilhas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+#prontos .planilha{background:var(--chapa);border:1px solid var(--linha);border-radius:14px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px;transition:border-color .2s}
+#prontos .planilha:hover{border-color:var(--humano)}
+#prontos .planilha b{color:var(--papel)}
+#prontos .planilha span{color:var(--nevoa);font-size:.9rem;flex:1}
+#prontos .planilha em{font-style:normal;color:var(--humano);font-weight:700;font-size:.9rem}
+@media(max-width:900px){#prontos .pronto{grid-template-columns:1fr}#prontos .planilhas{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){#prontos .planilhas{grid-template-columns:1fr}}
 </style>
 <!--/HEAD-->
 </head>
@@ -401,7 +419,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;p
 <header class="topo">
   <div class="wrap topo-in">
     <a class="marca" href="#inicio"><i aria-hidden="true"></i>Adriano Novais</a>
-    <nav aria-label="Seções"><a href="#pratica">Na prática</a><a href="#conta">Faça a conta</a><a href="#serve">Seu negócio</a><a href="#sobre">Quem faz</a></nav>
+    <nav aria-label="Seções"><a href="#prontos">Prontos</a><a href="#pratica">Na prática</a><a href="#conta">Faça a conta</a><a href="#serve">Seu negócio</a><a href="#sobre">Quem faz</a></nav>
   </div>
 </header>
 
@@ -431,6 +449,32 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;p
         <a class="bt bt-l" href="#pratica">Ver na prática</a>
       </div>
       <div class="selos"><span>Você aprova antes</span><span>Sem fidelidade longa</span><span>Suporte direto com o Adriano</span></div>
+    </div>
+  </section>
+
+
+  <section id="prontos">
+    <div class="wrap">
+      <div class="cab">
+        <h2>Sistemas <em>prontos</em> para usar hoje</h2>
+        <p class="sub">Já funcionando, sem esperar projeto. Clique para conhecer.</p>
+      </div>
+      <div class="pronto">
+        <img src="zaac-ml/img2/painel.jpg" alt="Painel do Zaac ML" width="1440" height="900" loading="lazy">
+        <div>
+          <span class="tag">Para quem vende no Mercado Livre</span>
+          <h3>Zaac ML</h3>
+          <p>O lucro real de cada venda, com frete, ADS, imposto e custos na conta. DRE, fluxo de caixa, expedição e atendimento de todas as suas contas numa tela só.</p>
+          <ul><li>Anúncios que dão prejuízo e o preço mínimo</li><li>DRE pronto para o contador</li><li>15 dias grátis, sem cartão</li></ul>
+          <div class="bts"><a class="bt bt-q" href="zaac-ml/">Saiba mais</a><a class="bt bt-l" href="https://zaacml.adrianonovais.com.br/cadastro">Testar grátis</a></div>
+        </div>
+      </div>
+      <div class="planilhas">
+        <a class="planilha" href="planilha/"><b>Planilha do Lucro Real</b><span>Para vendedores do Mercado Livre saberem quanto sobra em cada anúncio.</span><em>Saiba mais →</em></a>
+        <a class="planilha" href="familia/"><b>Família no Azul 2027</b><span>Orçamento da casa com limite por categoria e desafio das 52 semanas.</span><em>Saiba mais →</em></a>
+        <a class="planilha" href="saindo-do-vermelho/"><b>Saindo do Vermelho</b><span>Plano para quitar as dívidas, mês a mês.</span><em>Saiba mais →</em></a>
+        <a class="planilha" href="rotina-visual/"><b>Rotina Visual TEA</b><span>Kit para imprimir e organizar a rotina das crianças.</span><em>Saiba mais →</em></a>
+      </div>
     </div>
   </section>
 
